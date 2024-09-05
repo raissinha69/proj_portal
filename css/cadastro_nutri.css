@@ -1,0 +1,97 @@
+
+body {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+.cont_login {
+    width: 500px;
+    height: 500px;
+    background-color: #c71515;
+    margin: 0 auto;
+    margin-top: 3%;
+    border-radius: 4%;
+}
+
+.conteudo_login h1 {
+    text-align: center;
+    padding-top: 50px;
+    margin-bottom: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #ffffff;
+
+}
+
+.link {
+    color: #ffffff; /* Cor inicial do texto do link */
+    text-decoration: none; /* Remove o sublinhado padrão do link */
+    font-size: 15px; /* Define o tamanho da fonte */
+    margin-left: 100px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Efeito de hover para o link */
+.link:hover {
+    text-shadow: 
+    1px 1px 0 #fb0101, /* sombra inferior direita */
+    -1px -1px 0 rgb(251, 3, 3), /* sombra superior esquerda */
+    1px -1px 0 #fa0606, /* sombra inferior esquerda */
+    -1px 1px 0 #ff0000, /* sombra superior direita */
+    2px 2px 1px rgba(255, 3, 3, 0.6); /* Adiciona uma borda mais grossa e suave */
+    text-decoration: underline; /* Adiciona um sublinhado ao texto do link no hover */
+    transition: color 0.10s, text-decoration 0.10s; /* Suaviza a transição de cor e decoração */
+
+}
+
+#nome {
+    width: 95%;
+    padding-top: 10px;
+    padding: 12px 20px;
+    margin: 8px 8px ;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#senha {
+    width: 95%;
+    padding-top: 10px;
+    padding: 12px 20px;
+    margin: 8px 8px ;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#botao {
+    width: 85%;
+    padding: 12px 20px;
+    margin: 12px 36px ;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    border-radius: 16px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+#botao:hover {
+    background-color: #da1010;
+    transition: 300ms;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+#rm,
+#turma,
+#senha,
+#botao {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+}
+

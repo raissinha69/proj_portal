@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/intervalo-senai.css">
+<link rel="stylesheet" href="css/reset.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Dosis:wght@800&family=Oswald:wght@200..700&display=swap" rel="stylesheet"><title>Temporizador</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Days+One&family=Dosis:wght@800&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+<style>
+    /* Added inline CSS for simplicity */
+    .temporizador {
+        display: block;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="texts_header">
+                <a href="index.html"><img src="logo_sesi.png" alt="logo" class="logo"></a>
+                <a href="login.php"><h2>Aulas</h2></a>
+               <a href="cardapio.html"><h2>Cardápio</h2></a> 
+               <a href="#"><h2>Horários</h2></a> 
+    
+            </div>
+        </div>
+    </header>
+
+<div class="container-inst">
+    <div class="instituicao">
+        <a href="intervalo-senai.html"><img src="SENAI_São_Paulo_logo.png" width="120" height="40"/></a>
+        <a href="intervalo-sesi.html"><img src="sesi-logo-semf.png" width="120" height="40" /></a>
+    </div>
+</div>
+
+<div id="t-temporizadores">
+
+<div id="temporizador-container">
+
+<div id="temporizador-container-h">
+    <h2 class="concert-one-regular">10:00</h2>
+    <h3>Café da manhã</h2>
+    <div class="temporizador-r1">
+        <div class="temporizador" id="temporizador1">
+            
+            
+            <div class="contagem">
+            <span id="tempoRestante1"></span>
+            </div>
+        </div>
+        <div class="botoes">
+            <button onclick="startTimer(1)" class="btt-start">Esconder</button>
+            <button onclick="stopTimer(1)"class="btt-stop">Mostrar</button>
+        </div>
+    </div>
+</div>
+
+<div id="temporizador-container-h">
+<h2 class="concert-one-regular">12:30</h2>
+<h2 class="identificador">Almoço</h2>
+    <div class="temporizador-r1">
+        <div class="temporizador" id="temporizador2">
+            
+            
+            <div class="contagem">
+            <span id="tempoRestante2"></span>
+            </div>
+        </div>
+        <div class="botoes">
+            <button onclick="startTimer(2)" class="btt-start">Esconder</button>
+            <button onclick="stopTimer(2)" class="btt-stop">Mostrar</button>
+        </div>
+    </div>
+</div>
+
+
+<div id="temporizador-container-h">
+    <h2 class="concert-one-regular">15:20</h2>
+    <h2 class="identificador">Café da tarde </h2>
+    <div class="temporizador-r1">
+
+        <div class="temporizador" id="temporizador3">
+            
+            
+            <div class="contagem">
+            <span id="tempoRestante3"></span>
+            </div>
+        </div>
+        <div class="botoes">
+            <button onclick="startTimer(3)" class="btt-start">Esconder</button>
+            <button onclick="stopTimer(3)" class="btt-stop">Mostrar</button>
+        </div>
+    </div>
+</div>
+
+
+</div>
+<footer>
+    <div class="footer">
+        <p>Para mais informações:</p>
+        <p>Contato: 99 999-9999 </p>
+        <p>Produzido por: Senai ADS 2024.</p>
+    </div>
+
+    <style>
+        .footer {
+            background-color: #b81414; /* Cor de fundo para o footer */
+            color: #fff;
+            text-align: center;
+            padding: 10px 0; /* Ajuste o padding conforme necessário */
+            position: relative;
+            margin-top: 100px;
+        }
+
+        .footer > p {
+            padding-bottom: 5px;
+            padding-top: 5px;
+            display: flex;
+            justify-content: center;
+        margin-top: 10px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: #fff;
+        }
+    </style>
+</footer>
+
+
+
+<script>
+var timers = [];
+
+// Função para calcular o tempo restante até um horário específico
+function calcularTempoRestante(horaAlvo, idElemento) {
+    var agora = new Date();
+    var horaAlvoSplit = horaAlvo.split(":");
+    var hora = parseInt(horaAlvoSplit[0]);
+    var minuto = parseInt(horaAlvoSplit[1]);
+    
+    var alvo = new Date();
+    alvo.setHours(hora, minuto, 0, 0);
+    
+    var diferenca = alvo.getTime() - agora.getTime();
+    
+    var segundosRestantes = Math.floor(diferenca / 1000);
+    var minutosRestantes = Math.floor(segundosRestantes / 60);
+    var horasRestantes = Math.floor(minutosRestantes / 60);
+    
+    minutosRestantes %= 60;
+    segundosRestantes %= 60;
+    
+    var elementoTempoRestante = document.getElementById(idElemento);
+    elementoTempoRestante.innerHTML = horasRestantes + " : " + minutosRestantes + " : " + segundosRestantes;
+}
+
+// Função para iniciar o temporizador
+function startTimer(timerId) {
+    if (!timers.includes(timerId)) {
+        timers.push(timerId);
+        var timerElement = document.getElementById("temporizador" + timerId);
+        timerElement.classList.add('hidden'); // Hide the timer element
+    }
+}
+
+// Função para parar o temporizador
+function stopTimer(timerId) {
+    var index = timers.indexOf(timerId);
+    if (index !== -1) {
+        timers.splice(index, 1);
+        var timerElement = document.getElementById("temporizador" + timerId);
+        timerElement.classList.remove('hidden'); // Show the timer element
+    }
+}
+
+// Atualizar o tempo restante a cada segundo
+setInterval(function() {
+    calcularTempoRestante("10:00", "tempoRestante1");
+    calcularTempoRestante("12:30", "tempoRestante2");
+    calcularTempoRestante("15:20", "tempoRestante3");
+    calcularTempoRestante("16:00", "tempoRestante4");
+    
+    for (var i = 0; i < timers.length; i++) {
+        var timerId = timers[i];
+        var timerElement = document.getElementById("temporizador" + timerId);
+        var timerText = timerElement.querySelector("h3").innerText;
+        calcularTempoRestante(timerText, "tempoRestante" + timerId);
+    }
+}, 1000);
+</script>
+</body>
+</html>

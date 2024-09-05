@@ -1,0 +1,193 @@
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.buto{
+margin-left: 0px;
+margin-right: 0px;
+    margin-top: 40px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    cursor: pointer;
+}
+
+.container {
+    width: 100%;
+    height: 100px;
+    background-color: #b81414;
+}
+
+.logo {
+    width: 150px;
+    height: 60px;
+    margin-top: -20px;
+}
+
+/* Texts Header */
+.texts_header {
+    display: flex;
+    justify-content: space-around;
+    color: aliceblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-top: 40px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.texts_header a {
+    text-decoration: none;
+    color: inherit; 
+}
+
+
+
+
+/* section */
+
+
+.linhas img {
+    width: 40px;
+}
+
+.linhas {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.titulo {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    font-size: 25px;
+    font-weight: 700;
+    background-color: #eee;
+    padding: 20px;
+}
+
+.accordion-content  {
+    display: none;
+    justify-content: space-between;
+    flex-direction: row;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 40px 200px 40px 50px;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
+.accordion-content.open {
+    display: flex;
+}
+
+.imagem {
+    display: flex;
+    flex-direction: column;
+}
+
+.imagem img {
+    flex-direction: column;
+    width: 40px ;
+}
+
+.horas {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    background-color: #eee;
+    border-radius: 8px;
+    padding: 35px;
+    color: #444;
+}
+
+.horas h1 {
+    margin-bottom: 20px;
+    
+}
+
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 40px 20px 40px 40px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 20px;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #b81414; 
+}
+.active, .accordion:hover {
+    color:  #ffffff; 
+}
+
+.accordion.active {
+    display: flex;
+    font-size: 50px;
+    padding-left: 100px;
+}
+
+/* Footer */
+
+.footer {
+    width: 100%;
+    height: 120px;
+    background-color: #b81414;
+    padding-top: 10px;
+}
+
+.footer > p {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.botao {
+    background-color: #b81414; /* Cor de fundo do botão */
+    width: 190px;
+    height: 40px;
+    border-radius: 16px;
+    border: 2px solid transparent; /* Define a borda como transparente inicialmente */
+    margin-left: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Transição suave */
+}
+
+.botao:hover {
+    border-color: #b81414; /* Cor da borda ao passar o mouse */
+    background-color: #eee; /* Cor de fundo ao passar o mouse */
+    color: #444; /* Cor do texto ao passar o mouse */
+}
+
+.botao a {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none; /* Remove o sublinhado do link */
+    color: #fff; /* Cor do texto do link */
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 40px; /* Alinha verticalmente o texto */
+    text-align: center; /* Alinha o texto ao centro */
+    transition: 1000ms;
+}
+
+.botao:hover a {
+    color:#b81414; /* Cor do texto ao passar o mouse */
+}
+

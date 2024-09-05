@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/intervalo-senai.css">
+<link rel="stylesheet" href="css/reset.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Dosis:wght@800&family=Oswald:wght@200..700&display=swap" rel="stylesheet"><title>Temporizador</title>
+
+
+<style>
+    /* Added inline CSS for simplicity */
+    .temporizador {
+        display: block;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="texts_header">
+                <a href="index.html"><img src="logo_sesi.png" alt="logo" class="logo"></a>
+                <a href="login.php"><h2>Aulas</h2></a>
+               <a href="cardapio.html"><h2>Cardápio</h2></a> 
+               <a href="#"><h2>Horários</h2></a> 
+    
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container-inst">
+        <div class="instituicao">
+            <a href="intervalo-senai.html" ><img src="SENAI_São_Paulo_logo.png" width="120" height="40" /></a>
+            <a href="intervalo-sesi.html"><img src="sesi-logo-semf.png" width="120" height="40" /></a>
+        </div>
+    </div>
+
+<div class="but-hora">
+<button type="button" id="but-hora-em" onclick="exibe_EM()">MEDIO</button>
+<button type="button" id="but-hora-int" onclick="exibe_EI()">FUNDAMENTAL</button>
+</div>
+
+
+<div id="t-temporizadores">
+
+<!-- ensino médio inicio -->
+
+<div id="temporizador-containersesi">
+
+    <div id="temporizador-container-h">
+        <h2 class="concert-one-regular">16:00</h2>
+        
+        <div class="temporizador-r1">
+        
+            <div class="temporizador" id="temporizador4">
+                <div class="contagem">
+                <span id="tempoRestante4"></span>
+                </div>
+            </div>
+                <div class="botoes">
+                    <button onclick="startTimer(4)" class="btt-start">Esconder</button>
+                    <button onclick="stopTimer(4)" class="btt-stop">Mostrar</button>
+                </div>
+        </div>
+    </div>
+
+    <div id="temporizador-container-h">
+        <h2 class="concert-one-regular">18:45</h2>
+    
+    <div class="temporizador-r1">
+    
+        <div class="temporizador" id="temporizador6">
+            
+            
+            <div class="contagem">
+            <span id="tempoRestante6"></span>
+            </div>
+        </div>
+        <div class="botoes">
+            <button onclick="startTimer(6)" class="btt-start">Esconder</button>
+            <button onclick="stopTimer(6)" class="btt-stop">Mostrar</button>
+        </div>
+    </div>
+    </div>
+
+</div>
+
+<!-- ensino médio fim -->
+
+
+<!-- ensino médio integrado inicio -->
+
+<div id="temporizador-container-ensino-integral">
+
+
+    <div id="temporizador-container-h">
+        <h2 class="concert-one-regular">12:20</h2>
+            <div class="temporizador-r1">
+            <div class="temporizador" id="temporizador5">
+                
+                
+                <div class="contagem">
+                <span id="tempoRestante5"></span>
+                </div>
+            </div>
+            <div class="botoes">
+                <button onclick="startTimer(5)" class="btt-start">Esconder</button>
+                <button onclick="stopTimer(5)" class="btt-stop">Mostrar</button>
+            </div>
+        </div>
+
+        <div id="temporizador-container-h">
+            <h2 class="concert-one-regular">16:00</h2>
+            
+            <div class="temporizador-r1">
+            
+                <div class="temporizador" id="temporizador7">
+                    <div class="contagem">
+                    <span id="tempoRestante7"></span>
+                    </div>
+                </div>
+                    <div class="botoes">
+                        <button onclick="startTimer(7)" class="btt-start">Esconder</button>
+                        <button onclick="stopTimer(7)" class="btt-stop">Mostrar</button>
+                    </div>
+            </div>
+        </div>
+    
+        <div id="temporizador-container-h">
+            <h2 class="concert-one-regular">18:45</h2>
+        
+        <div class="temporizador-r1">
+        
+            <div class="temporizador" id="temporizador8">
+                
+                
+                <div class="contagem">
+                <span id="tempoRestante8"></span>
+                </div>
+            </div>
+            <div class="botoes">
+                <button onclick="startTimer(6)" class="btt-start">Esconder</button>
+                <button onclick="stopTimer(6)" class="btt-stop">Mostrar</button>
+            </div>
+        </div>
+        </div>
+        
+
+</div>
+
+<script>
+var timers = [];
+
+// Função para calcular o tempo restante até um horário específico
+function calcularTempoRestante(horaAlvo, idElemento) {
+    var agora = new Date();
+    var horaAlvoSplit = horaAlvo.split(":");
+    var hora = parseInt(horaAlvoSplit[0]);
+    var minuto = parseInt(horaAlvoSplit[1]);
+    
+    var alvo = new Date();
+    alvo.setHours(hora, minuto, 0, 0);
+    
+    var diferenca = alvo.getTime() - agora.getTime();
+    
+    var segundosRestantes = Math.floor(diferenca / 1000);
+    var minutosRestantes = Math.floor(segundosRestantes / 60);
+    var horasRestantes = Math.floor(minutosRestantes / 60);
+    
+    minutosRestantes %= 60;
+    segundosRestantes %= 60;
+    
+    var elementoTempoRestante = document.getElementById(idElemento);
+    elementoTempoRestante.innerHTML = horasRestantes + " : " + minutosRestantes + " : " + segundosRestantes;
+}
+
+// Função para iniciar o temporizador
+function startTimer(timerId) {
+    if (!timers.includes(timerId)) {
+        timers.push(timerId);
+        var timerElement = document.getElementById("temporizador" + timerId);
+        timerElement.classList.add('hidden'); // Hide the timer element
+    }
+}
+
+// Função para parar o temporizador
+function stopTimer(timerId) {
+    var index = timers.indexOf(timerId);
+    if (index !== -1) {
+        timers.splice(index, 1);
+        var timerElement = document.getElementById("temporizador" + timerId);
+        timerElement.classList.remove('hidden'); // Show the timer element
+    }
+}
+
+
+// Atualizar o tempo restante a cada segundo
+setInterval(function() {
+    calcularTempoRestante("12:20", "tempoRestante5");
+    calcularTempoRestante("16:00", "tempoRestante4");
+    calcularTempoRestante("18:45", "tempoRestante6");
+    calcularTempoRestante("16:00", "tempoRestante7");
+    calcularTempoRestante("18:45", "tempoRestante8");
+    
+    for (var i = 0; i < timers.length; i++) {
+        var timerId = timers[i];
+        var timerElement = document.getElementById("temporizador" + timerId);
+        var timerText = timerElement.querySelector("h3").innerText;
+        calcularTempoRestante(timerText, "tempoRestante" + timerId);
+    }
+}, 1000);
+
+
+
+function exibe_EM() {
+    document.getElementById('temporizador-container-ensino-integral').style.display = 'none';
+    document.getElementById('temporizador-containersesi').style.display = 'flex';
+}
+function exibe_EI() {
+    document.getElementById('temporizador-container-ensino-integral').style.display = 'flex';
+    document.getElementById('temporizador-containersesi').style.display = 'none';
+    
+}
+</script>
+
+
+</body>
+</html>
